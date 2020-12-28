@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Add Product
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <p class="display-4">{{ products.0.category }}</p>
+        <div class="d-flex">
+        {% for product in products %}
+        <div class="card border-primary mb-3 mr-4">
+            <div class="card-header">{{ product.name }} -- {{ product.user }}</div>
+            <div class="card-body">
+              <img style="width: 200px;" src="{{ product.image.url }}" alt="">
+              <h4 class="card-title">{{ product.price }}</h4>
+              <p class="card-text">{{ product.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}
